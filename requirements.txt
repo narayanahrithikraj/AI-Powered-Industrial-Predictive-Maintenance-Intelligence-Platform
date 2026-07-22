@@ -1,0 +1,31 @@
+# Data Processing & Visualization
+pandas
+numpy
+scipy
+plotly
+matplotlib
+
+# Machine Learning & Explainability (Optimized for CPU)
+scikit-learn
+xgboost-cpu
+lightgbm
+shap
+joblib
+
+# Backend & Database
+fastapi
+uvicorn
+pydantic
+email-validator
+sqlalchemy
+psycopg2-binary
+python-jose[cryptography]
+passlib[bcrypt]
+
+# Frontend Dashboard
+streamlit
+requests
+
+# MLOps & Testing
+mlflow
+pytest

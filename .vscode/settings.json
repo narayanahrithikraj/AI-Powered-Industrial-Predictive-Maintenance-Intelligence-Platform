@@ -1,0 +1,15 @@
+{
+    "python.analysis.extraPaths": [
+        "${workspaceFolder}",
+        "${workspaceFolder}/app",
+        "${workspaceFolder}/app/backend",
+        "${workspaceFolder}/app/frontend",
+        "${workspaceFolder}/app/ml"
+    ],
+    "python.analysis.typeCheckingMode": "basic",
+    "python.analysis.diagnosticSeverityOverrides": {
+        "reportMissingImports": "none",
+        "reportMissingModuleSource": "none"
+    },
+    "python.pythonPath": ".venv\\Scripts\\python.exe"
+}

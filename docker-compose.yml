@@ -1,0 +1,41 @@
+version: '3.8'
+
+services:
+  db:
+    image: postgres:15-alpine
+    container_name: predictive_maint_db
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: secretpassword
+      POSTGRES_DB: predictive_maint
+    ports:
+      - "5433:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+
+  backend_api:
+    build:
+      context: .
+      dockerfile: app/backend/Dockerfile
+    container_name: predictive_maint_api
+    ports:
+      - "8000:8000"
+    environment:
+      DATABASE_URL: postgresql://postgres:secretpassword@db:5432/predictive_maint
+    depends_on:
+      - db
+
+  frontend_dashboard:
+    build:
+      context: .
+      dockerfile: app/frontend/Dockerfile
+    container_name: predictive_maint_dashboard
+    ports:
+      - "8501:8501"
+    environment:
+      BACKEND_URL: http://backend_api:8000
+    depends_on:
+      - backend_api
+
+volumes:
+  postgres_data:
